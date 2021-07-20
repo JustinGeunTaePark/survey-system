@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title>Index page </title>
+   </head>
+   <body>
+      <div class="container">
+      
+        <div class="row">
+
+          <div class="col-8 d-flex justify-content-center">
+          <center>
+          <h1> Add question </h1>
+            <Form method="POST">
+               <input type="text" name="question_name" placeholder="Enter question"/>
+               <button class = "btn btn-primary" type="submit" name="question_name">submit</button>
+            </Form>
+
+
+            <Form method="POST">
+               <p>
+                  <select name="course">
+                      {% for course in courses %}
+                      <option value="{{course}}">{{course}}</option>
+                      {% endfor %}                                              
+                  </select>
+                  <button class = "btn btn-success" type="submit" value = "create" name="question_name">Create survey</button>
+
+
+
+              <!--  {% for course in courses %}
+                  <p>
+                  <select type="radio" name="course" value={{course}}>{{course}}</input>
+                  <br>
+                  </p>
+               {% endfor %} -->
+            </Form>
+          </center>                
+          </div>
+          <div class="col-4">
+          <h2> List of questions </h2>
+            {% if all_users %}
+            {% for user in all_users %}
+            {{user}} <br>
+            {% endfor %}
+            {%else%}
+            No questions
+            {% endif %}            
+          </div>
+        </div>
+      </div>
+      
+   </body>
+</html>

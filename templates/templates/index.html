@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+   <head>
+   <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+   <title>Index page </title>
+   </head>
+   <div class="w3-dropdown-hover w3-blue w3-display-topright w3-padding">
+               <a class="w3-blue" style="hover:none decoration:none" type="submit" href="{{ url_for('logout')}}">Logout</a>
+            </div>
+   <body>
+      <h1> Add question </h1>
+      <Form method="POST">
+         <input name="name" placeholder="Enter question"/>
+         <button type="submit" name="bt">submit</button>
+      </Form>
+   </body>
+</html>
+    

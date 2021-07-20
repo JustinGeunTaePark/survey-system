@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<style>html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+   <head>
+   <title>Open/Close Surveys</title>
+   </head>
+   <body>
+      <div class="w3-padding w3-xlarge w3-yellow">
+            Open surveys
+            <div class="w3-dropdown-hover w3-yellow w3-display-topright w3-padding">
+               <a type="submit" href="{{ url_for('logout')}}">Logout</a>
+            </div>
+            </div>
+      <Form method="POST">
+      	 {% if survey_status %}
+          <div class="w3-row">
+               <div class="w3-col m2 w3-yellow w3-center"><p>COURSE</p></div>
+               <div class="w3-col m2 w3-yellow w3-center"><p>STATUS</p></div>
+               <div class="w3-col m2 w3-yellow w3-center"><p>START DATE</p></div>
+               <div class="w3-col m2 w3-yellow w3-center"><p>START TIME</p></div>
+               <div class="w3-col m2 w3-yellow w3-center"><p>END DATE</p></div>
+               <div class="w3-col m2 w3-yellow w3-center"><p>END DATE</p></div>
+
+      	 	{% for survey in survey_status %}
+      	 	<div class="w3-col m2 w3-large w3-center"><input type="checkbox" name = "courses" value = "{{survey[0]}}"</input>{{survey[0]}} </div>
+            <div class="w3-col m2 w3-center"><p>{{survey[1]}}</p></div>
+            <div class="w3-col m2 w3-center"><p>{{survey[2]}}</p></div>
+            <div class="w3-col m2 w3-center"><p>{{survey[3]}}</p></div>
+            <div class="w3-col m2 w3-center"><p>{{survey[4]}}</p></div>
+            <div class="w3-col m2 w3-center"><p>{{survey[5]}}</p></div>
+      	 	{% endfor %}
+      	 {% else %}
+      	 	<div class="w3-center">Currently no active surveys</div>
+      	 {% endif %}
+          <div class="w3-container w3-center">
+         <button type="submit" class="w3-btn w3-yellow" value="open" name="button">Open survey</button>
+         <button type="submit" class="w3-btn w3-yellow" value="close" name="button">Close survey</button>
+         <button type="submit" class="w3-btn w3-yellow" value="back" name="button">Back</button>
+         </div>
+      </Form>
+   </body>
+</html>
+    

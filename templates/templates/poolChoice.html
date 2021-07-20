@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+   <head>
+   <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+   <title>Question page</title>
+   </head>
+   <body>
+  <div class="w3-padding w3-xlarge w3-yellow">
+  Questions page
+        <div class="w3-dropdown-hover w3-yellow w3-display-topright w3-padding">
+      <a type="submit" href="{{ url_for('logout')}}">Logout</a>
+    </div>
+  </div> 
+      <h1> From which pool would you like to select questions from? </h1>
+      <Form method="POST">
+         <button class="w3-button w3-align-center w3-yellow w3-hover-light-grey" style="width:30%" type="submit" name="button" value = "mandatory">Mandatory Pool</button>
+         <button class="w3-button w3-align-center w3-yellow w3-hover-light-grey" style="width:30%" type="submit" name="button" value = "optional">Optional Pool</button>
+         <br>
+         <br>
+         <button class="w3-button w3-align-center w3-yellow w3-hover-light-grey" type="submit" name="button" value = "back">Back</button>
+      </Form>
+   </body>
+</html>
+    

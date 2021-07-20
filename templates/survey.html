@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+   <head>
+   <title>Survey page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+   </head>
+   <body>
+   <div class="form-horizonal">
+       <div class="w3-dropdown-hover w3-blue w3-display-topright w3-padding">
+      <a type="submit" href="{{ url_for('logout')}}">Logout</a>
+    </div>
+   <form method = "POST">
+      <h4> Survey </h4>
+      <h4> These are Mandatory Questions </h4>
+      </p>
+      {% if all_users %}
+      {% for user in all_users %}
+        {%if user[2] == "mandatory"%}
+        <p>{{user[0]}} </p>
+              {%if user[1] == "mcq"%}
+                {% for u in b %}
+                  <input type='radio' id = {{u}} name= "{{user[0]}}" value = {{u}} /> {{u}}
+                {% endfor %}
+              {%else%}
+                  <input type="text" name="{{user[0]}}"> 
+              {%endif%}
+        {% endif %}
+      {% endfor %}
+      {%else%}
+          No questions
+      {% endif %}
+      <h4> These are Optional Questions </h4>
+      {% if all_users %}
+      {% for user in all_users %}
+        {%if user[2] == "optional"%}
+        <p>{{user[0]}} </p>
+              {%if user[1] == "mcq"%}
+                {% for u in b %}
+                  <input type='radio' id = {{u}} name= "{{user[0]}}" value = {{u}} /> {{u}}
+                {% endfor %}
+              {%else%}
+                  <input type="text" name="{{user[0]}}"> 
+              {%endif%}
+        {% endif %}
+      {% endfor %}
+      {%else%}
+          No questions
+      {% endif %}
+      <br>
+      <input type="submit" onclick="alert('Thank you for filling out the survey')" value="Finish">
+      </form>
+      </div>
+   </body>
+   </html>

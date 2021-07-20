@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+   <head>
+   <title>Open/Close Survey</title>
+   </head>
+   <body>
+      <div class="w3-padding w3-xlarge w3-yellow">
+            Open surveys
+            <div class="w3-dropdown-hover w3-yellow w3-display-topright w3-padding">
+               <a type="submit" href="{{ url_for('logout')}}">Logout</a>
+            </div>
+            </div>
+      <Form method="POST">
+      	 {% if surveys %}
+              <div class="w3-row w3-center">
+      	 	     <div class="w3-col m2 w3-yellow w3-center"><p>COURSE</p></div>
+               <div class="w3-col m2 w3-yellow w3-center"><p>START DATE</p></div>
+               <div class="w3-col m2 w3-yellow w3-center"><p>START TIME</p></div>
+               <div class="w3-col m2 w3-yellow w3-center"><p>END DATE</p></div>
+               <div class="w3-col m2 w3-yellow w3-center"><p>END TIME</p></div>
+              <div class="w3-col m2 w3-yellow w3-center"><p>____</p></div>
+      	 	{% for survey in surveys%}
+      	 	   <div class="w3-col m2 w3-center">{{survey}}</div>
+             <div class="w3-col m2 w3-center"><input class ="w3-input" type="text" name="STARTDATE" placeholder="START DATE"/></div>
+             <div class="w3-col m2 w3-center"><input class="w3-input" type="text" name="STARTTIME" placeholder="START TIME"/></div>
+             <div class="w3-col m2 w3-center"><input class="w3-input" type="text" name="ENDDATE" placeholder="END DATE"/></div>
+             <div class="w3-col m2 w3-center"><input class="w3-input" type="text" name="ENDTIME" placeholder="END TIME"/></div></div>
+      	 	{% endfor %}
+      	 {% else %}
+      	 	<div class="w3-large w3-center">Currently no surveys to open</div>
+      	 {% endif %}
+         <div class="w3-center">
+         <button type="submit" class="w3-btn w3-yellow w3-center" value ="submit" name="bt">Submit</button>
+         <button type="submit" class="w3-btn w3-yellow w3-center" value="back" name="button">Back</button>
+      </Form>
+   </body>
+</html>
+    
